@@ -22,3 +22,14 @@ jobs:
         with:
           branch: gh-pages
           folder: build
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ petly.mymc.icu }}
+          ARGS: '-rlgoDzvc -i --delete'
+          SOURCE: 'dist/'
+          REMOTE_HOST: ${{ petly.mymc.icu }}
+          # REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ repositories/project-nodejs_55-5_frontend }}
+          EXCLUDE: '/dist/, /node_modules/'
