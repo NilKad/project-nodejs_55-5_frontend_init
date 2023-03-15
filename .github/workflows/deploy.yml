@@ -31,4 +31,4 @@ jobs:
       - run:
           cd dist && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o
           StrictHostKeyChecking=no" --archive --compress --delete .
-          mymcicu@petly.mymc.icu.:/home/mymcicu/repositories/project-nodejs_55-5_frontend
+          mymcicu@mymc.icu:/home/mymcicu/repositories/project-nodejs_55-5_frontend
