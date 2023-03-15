@@ -31,17 +31,4 @@ jobs:
         # Deploy
         - run: cd app && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . mymcicu@petly.mymc.icu.:/home/mymcicu/repositories/project-nodejs_55-5_frontend
 
-      # - name: Deploy to Server
-        # uses: easingthemes/ssh-deploy@main
-        # env:
-          # SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-          # SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-          # SSH_KEY_PATH: ${{ github.workspace }}/../private.key
-          
-          # SSH_PRIVATE_KEY: ${{ petly.mymc.icu }}
-          # ARGS: '-rlgoDzvc -i --delete'
-          # SOURCE: 'dist/'
-          # REMOTE_HOST: ${{ petly.mymc.icu }}
-          # # REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          # TARGET: ${{ repositories/project-nodejs_55-5_frontend }}
-          # EXCLUDE: '/dist/, /node_modules/'
+     
