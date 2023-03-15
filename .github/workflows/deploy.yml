@@ -22,14 +22,13 @@ jobs:
         with:
           branch: gh-pages
           folder: build
-          
-      - name: Deply to server
-        # Setup key
-        - run: set -eu
-        - run: mkdir "$HOME/.ssh"
-        - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
-        - run: chmod 600 "$HOME/.ssh/key"
-        # Deploy
-        - run: cd app && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . mymcicu@petly.mymc.icu.:/home/mymcicu/repositories/project-nodejs_55-5_frontend
 
-     
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
+      # Deploy
+      - run:
+          cd app && rsync -e "ssh -p 22 -i $HOME/.ssh/key -o
+          StrictHostKeyChecking=no" --archive --compress --delete .
+          mymcicu@petly.mymc.icu.:/home/mymcicu/repositories/project-nodejs_55-5_frontend
