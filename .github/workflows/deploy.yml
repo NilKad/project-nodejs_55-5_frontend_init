@@ -22,7 +22,8 @@ jobs:
         with:
           branch: gh-pages
           folder: build
-
+          
+      - name: Deply to server
         # Setup key
         - run: set -eu
         - run: mkdir "$HOME/.ssh"
